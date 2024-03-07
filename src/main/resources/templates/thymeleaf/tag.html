@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .national {background-color: bisque; }
+        .summer {font-size: large; }
+    </style>
+</head>
+<body style="margin: 50px;">
+    <h1>텍스트 출력 및 태그 속성</h1>
+    <hr>
+    <ul>
+        <li><samp th:text="${name}">마리아</samp>님 환영합니다.</li>
+    </ul>
+    <div th:text="${name}">마리아</div>
+    <div>[[${name}]]님 환영합니다.</div>
+    <ul>
+        <li><samp th:text="${data}"></samp></li>
+        <li><samp th:utext="${data}"></samp></li>
+        <li>[[${data}]]></li>
+        <li>[(${data})]></li>
+    </ul>
+    <ul>
+        <li><samp class="national">사과</samp></li>
+        <li><samp class="national" th:classappend="summer">복숭아</samp></li>   <!--class가 하나 더 붙여짐-->
+        <li><samp class="summer">참외</samp></li>
+    </ul>
+</body>
+</html>

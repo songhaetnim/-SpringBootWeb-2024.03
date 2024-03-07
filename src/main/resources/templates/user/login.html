@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello HTML</title>
+    <title>Document</title>
     <style>
-      input{padding: 3px;}
-  </style>
+        input { padding: 3px; }
+    </style>
 </head>
 <body style="margin: 50px;">
-    <h1>Member Insert</h1>
+    <h1>Login</h1>
     <hr>
-  <form action="/sb/user/login" method="post">
-      
-        <input type="text" name="uid" placeholder="login uid">
-        <input type="text" name="pwd" placeholder="passwod"><br><br>
+    <form action="/sb/user/login" method="post">
+        <input type="text" name="uid" placeholder="uid"><br><br>
+        <input type="password" name="pwd" placeholder="password"><br><br>
         <input type="submit" value="로그인">
-  </form>
+    </form>
 </body>
 </html>

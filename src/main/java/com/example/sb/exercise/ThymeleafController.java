@@ -24,23 +24,21 @@ public class ThymeleafController {
    }
    
    
-   @GetMapping("/el")
-   public String el(HttpSession session, Model model) {
-	   Member m1 = new Member (101, "제임스",25);
-	   model.addAttribute("member", m1);
-	   Member m2 = new Member(102, "마리아",23);
-	   List<Member> list = new ArrayList<>();
-	   list.add(m1);
-	   list.add(m2);
-	   model.addAttribute("memberList", list);
-	   
-	   session.setAttribute("sessUname", "제임스");
-	   session.setAttribute("sessAge", 25);
-	   LocalDateTime now = LocalDateTime.now();
-	   model.addAttribute("now",now);
-	   return "thymeleaf/el";
-	   
-   }
+	@GetMapping("/el")
+	public String el(HttpSession session, Model model) {
+		Member m1 = new Member(101, "제임스", 25);
+		model.addAttribute("member", m1);
+		Member m2 = new Member(102, "마리아", 23);
+		List<Member> list = new ArrayList<>();
+		list.add(m1); list.add(m2);
+		model.addAttribute("memberList", list);
+		
+		session.setAttribute("sessUname", "제임스");
+		session.setAttribute("sessAge", 25);
+		LocalDateTime now = LocalDateTime.now();
+		model.addAttribute("now", now);
+		return "thymeleaf/el.html";
+	}
    @GetMapping("/url")
    public String url(Model model) {
       model.addAttribute("uid", "james");
@@ -55,4 +53,32 @@ public class ThymeleafController {
 	   return "<h1>uid=" + uid + ", page=" + page +"</h1>";
    }
    
+   @GetMapping("/iter")
+   public String iter(Model model) {
+	  List<Member> list = new ArrayList<>();
+	  list.add(new Member(101,"제임스",25));
+	  list.add(new Member(102,"마리아",23));
+	  list.add(new Member(103,"브라이언",31));
+	  list.add(new Member(104,"엠마",28));
+	  list.add(new Member(104,"제리",38));
+	  list.add(new Member(104,"아담",98));
+	  list.add(new Member(104,"이브",18));
+      model.addAttribute("memberList",list);
+      
+      return "thymeleaf/iter.html";
+   }
+   
+	@GetMapping("/cond")
+	public String cond(Model model) {
+		List<Member> list = new ArrayList<>();
+		list.add(new Member(101, "제임스", 25));
+		list.add(new Member(102, "마리아", 23));
+		list.add(new Member(103, "브라이언", 31));
+		list.add(new Member(104, "엠마", 28));
+		model.addAttribute("memberList", list);
+		model.addAttribute("num1", 3);
+		model.addAttribute("num2", 4);
+		return "thymeleaf/cond.html";
+	}
+	
 }
